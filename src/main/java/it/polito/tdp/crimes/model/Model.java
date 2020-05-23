@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.jgrapht.Graph;
+
 import org.jgrapht.Graphs;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleWeightedGraph;
@@ -46,7 +46,11 @@ public class Model {
 		System.out.println(String.format("Grafo creato con %d vertici e %d archi", this.grafo.vertexSet().size(), this.grafo.edgeSet().size()));
 	}
 	
-	
+	/**
+	 * L’elenco di tutti gli archi il cui peso sia superiore al peso medio presente nel grafo. 
+	 * Per ogni arco si visualizzino i due tipi di reato (i due vertici) ed il peso stesso.
+	 * @return
+	 */
 	public List<Arco> getArchi(){
 		double pesoMedio = 0.0;
 		for(DefaultWeightedEdge e : this.grafo.edgeSet()) {
@@ -63,7 +67,12 @@ public class Model {
 		return archi;
 	}
 	
-	
+	/**
+	 * inizializzo la ricorsione e la richiamo
+	 * @param sorgente
+	 * @param destinazione
+	 * @return
+	 */
 	public List<String> trovaPercorso(String sorgente, String destinazione) {
 		List<String> parziale = new ArrayList<>();
 		this.best = new ArrayList<>();
@@ -72,6 +81,12 @@ public class Model {
 		return this.best;
 	}
 
+	/**
+	 * ricorsione
+	 * @param destinazione
+	 * @param parziale
+	 * @param L
+	 */
 	private void trovaRiscorsivo(String destinazione, List<String> parziale, int L) {
 
 		//CASO TERMINALE? -> quando l'ultimo vertice inserito in parziale è uguale alla destinazione
