@@ -9,7 +9,7 @@ public class TestDao {
 		for(Event e : dao.listAllEvents())
 			System.out.println(e);
 		
-		System.out.println(dao.getMesi());
+		//System.out.println(dao.getMesi());
 	}
 
 }
